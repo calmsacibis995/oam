@@ -39,10 +39,9 @@ extern int	execv(),
 		ismenu(),
 		getopt(),
 		find_expr();
-extern void	print_err(),
+extern void	print_err(int err_no, char *prog, ...),
 		clr_marks(),
 		lineage(),
-		exit(),
 		free_menu();
 extern struct menu_item 
 		*find_menu();
