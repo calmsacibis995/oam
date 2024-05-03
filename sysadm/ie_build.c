@@ -10,6 +10,7 @@
 #ident	"@(#)oamintf:interface/ie_build.c	1.3.1.2"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
