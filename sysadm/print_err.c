@@ -42,7 +42,7 @@ void
 print_err(int err_no, char *prog, ...)
 {
 	va_list ap;
-    char *pt;
+	char *pt;
 
 	if ((pt = strrchr(prog, '/')) != NULL)
 	 	prog = pt + 1;
