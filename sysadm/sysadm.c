@@ -195,9 +195,9 @@ main(int argc, char **argv)
 	}
 
 	/*
-	 * This is a temporary hack to get sysadm working.
+	 * This is a temporary hack.
 	 */
-	//nnamep = SYSADM;
+	nnamep = "root";
 
 	/*
 	 * Now, get info about simple name "user" from /etc/passwd.
