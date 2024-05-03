@@ -39,32 +39,30 @@ static char	*msg[] = {
 #define NMESGS	(sizeof(msg)/sizeof(char *))
 
 void
-print_err(char *prog, int err_no, ...)
+print_err(int err_no, char *prog, ...)
 {
-	va_list va;
-	char *pt;
+	va_list ap;
+    char *pt;
 
-	va_start(va, err_no);
+	 if ((pt = strrchr(prog, '/')) != NULL)
+	 	prog = pt + 1;
 
-	err_no = va_arg(va, int);
-	prog = va_arg(va, char *);
+	fprintf(stderr, "UX:%s:", prog);
 
-	if((pt = strrchr(prog, '/')) != NULL)
-		prog = pt+1;
-
-	(void) fprintf(stderr, "UX:%s:", prog);
-
-	if(err_no == RENAMED)
-		(void) fprintf(stderr, "INFO:");
-	else if(err_no == INVPATH)
-		(void) fprintf(stderr, "WARNING:");
+	if (err_no == RENAMED)
+		fprintf(stderr, "INFO:");
+	else if (err_no == INVPATH)
+		fprintf(stderr, "WARNING:");
 	else
-		(void) fprintf(stderr, "ERROR:");
+		fprintf(stderr, "ERROR:");
 
-	if((err_no < 0) || (err_no >= NMESGS))
-		(void) fprintf(stderr, "unknown error.");
-	else
-		(void) vfprintf(stderr, msg[err_no], va);
-	va_end(va);
-	(void) putc('\n', stderr);
+	if ((err_no < 0) || (err_no >= NMESGS))
+		fprintf(stderr, "unknown error.");
+	else {
+		va_start(ap, prog);
+		vfprintf(stderr, msg[err_no], ap);
+		va_end(ap);
+	}
+
+	putc('\n', stderr);
 }
