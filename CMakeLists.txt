@@ -30,5 +30,6 @@ set(CMAKE_BUILD_TYPE RelWithDebInfo)
 # Subdirectories
 #
 add_subdirectory(libintf)
+add_subdirectory(edsysadm)
 #add_subdirectory(reloc)
 add_subdirectory(sysadm)
