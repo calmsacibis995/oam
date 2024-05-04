@@ -45,7 +45,7 @@ print_err(int err_no, char *prog, ...)
 	char *pt;
 
 	if ((pt = strrchr(prog, '/')) != NULL)
-	 	prog = pt + 1;
+		prog = pt + 1;
 
 	fprintf(stderr, "UX:%s:", prog);
 
